@@ -1,0 +1,44 @@
+PODS:
+  - ESPullToRefresh (2.9.3)
+  - JGProgressHUD (2.2)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
+  - SDWebImage (5.13.0):
+    - SDWebImage/Core (= 5.13.0)
+  - SDWebImage/Core (5.13.0)
+  - Wormholy (1.6.5)
+
+DEPENDENCIES:
+  - ESPullToRefresh
+  - JGProgressHUD
+  - RxCocoa
+  - RxSwift
+  - SDWebImage
+  - Wormholy
+
+SPEC REPOS:
+  trunk:
+    - ESPullToRefresh
+    - JGProgressHUD
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SDWebImage
+    - Wormholy
+
+SPEC CHECKSUMS:
+  ESPullToRefresh: 0d68daa602b343c81753a1b95e09fd0bfcddfd40
+  JGProgressHUD: d83d7a981b85d11205e19ff8ad5bb9c40571c847
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  SDWebImage: 0327043dbb9533e75f2eff8445b3df0f2ceca6ac
+  Wormholy: 3252bc3e55a1847ef9a0976c1377bd77bf3635fa
+
+PODFILE CHECKSUM: 17ed301fb175fe1c13b77e4a7973451d83335d66
+
+COCOAPODS: 1.11.3
