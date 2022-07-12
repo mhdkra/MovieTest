@@ -8,6 +8,11 @@
 import Foundation
 // MARK: - MovieResponse
 struct MovieDetailResponse: Codable {
+    
+    let success: Bool?
+    let statusCode: Int?
+    let statusMessage: String?
+    
     let adult: Bool?
     let backdropPath: String?
     let belongsToCollection: BelongsToCollection?
@@ -27,7 +32,7 @@ struct MovieDetailResponse: Codable {
     let video: Bool?
     let voteAverage: Double?
     let voteCount: Int?
-
+    
 }
 
 // MARK: - BelongsToCollection

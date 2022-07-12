@@ -38,7 +38,7 @@ class MovieListVM: BaseViewModel {
     
     func transform(_ input: Input) -> Output {
         self.makeRequestSearch(input)
-        return Output(cards: self.cardsRelay.asDriver().skip(1),
+        return Output(movies: self.cardsRelay.asDriver().skip(1),
                       state: self.stateRelay.asDriver().skip(1))
     }
     
@@ -62,7 +62,7 @@ class MovieListVM: BaseViewModel {
     
     private func requestMovies(keyword: String) {
         self.repository
-            .request(parameters: MovieListBody(apiKey: HTTPAuth.shared.apiKey, query: keyword ?? "", page: self.page))
+            .request(body: MovieListBody(apiKey: HTTPAuth.shared.apiKey, query: keyword, page: self.page))
             .subscribe { (result) in
                 if self.page != 1 {
                     self.stateRelay.accept(.close)

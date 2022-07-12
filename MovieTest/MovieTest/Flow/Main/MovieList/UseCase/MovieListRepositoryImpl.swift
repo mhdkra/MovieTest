@@ -40,7 +40,7 @@ class MovieListRepositoryImpl: MovieListRepository {
     private func outputTransformModel(_ response: MovieListResponse) -> Result<[MovieModel], HTTPError> {
         if let datas = response.results {
             let model = datas.map { (res) in
-                return MovieModel(name: res.originalTitle ?? "", release: res.releaseDate ?? "", genres: res.genreIds ?? [])
+                return MovieModel(id: res.id ?? 0, name: res.originalTitle ?? "", release: res.releaseDate ?? "", genres: res.genreIds ?? [])
             }
             return .success(model)
         }

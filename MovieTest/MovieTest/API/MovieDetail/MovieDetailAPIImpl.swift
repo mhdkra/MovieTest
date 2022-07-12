@@ -14,7 +14,7 @@ class MovieDetailAPIImpl: MovieDetailAPI {
         var method = HTTPMethod.GET
         var path = "/movie/"
         var apiVersion = ApiVersion.v3
-        var parameters: [String: Any]
+        var parameters: [String: Any] = [String: Any]()
         var authentication = HTTPAuth.tokenType.basic
         var header = HeaderType.basic
         

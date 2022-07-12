@@ -9,10 +9,12 @@ import Foundation
 import UIKit
 
 struct MovieDetailModel {
-    let movieImage: UIImage
+    let id: Int
+    let movieImage: URL
     let duration: String
-    let genres: String
-    let cast: [CastModel]
+    let genres: [String]
+    let overview: String
+//    let cast: [CastModel]
 }
 
 struct CastModel{

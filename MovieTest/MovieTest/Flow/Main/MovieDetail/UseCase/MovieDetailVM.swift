@@ -13,15 +13,15 @@ class MovieDetailVM: BaseViewModel {
     
     private let repository: MovieDetailRepository
     private let disposeBag = DisposeBag()
-    private let cardsRelay = BehaviorRelay<MovieDetailModel?>(value: nil)
+    private let detailRelay = BehaviorRelay<MovieDetailModel?>(value: nil)
     private let stateRelay = BehaviorRelay<BasicUIState>(value: .loading)
  
     struct Input {
-        let typeAndSub: Observable<(String,String)>
+        let id: Observable<(String)>
     }
     
     struct Output {
-        let cards: Driver<MovieDetailModel>
+//        let movie: Driver<MovieDetailModel>
         let state: Driver<BasicUIState>
 
     }
@@ -32,7 +32,7 @@ class MovieDetailVM: BaseViewModel {
     
     func transform(_ input: Input) -> Output {
         self.makeRequestDetail(input)
-        return Output(cards: self.cardsRelay.asDriver(),
+        return Output(//movie: self.detailRelay.asDriver().skip(1),
                       state: self.stateRelay.asDriver().skip(1))
     }
     

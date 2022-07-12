@@ -13,3 +13,9 @@ extension NSObject {
         return NSStringFromClass(self).components(separatedBy: ".").last!
     }
 }
+
+extension Int{
+    func minutesToHoursAndMinutes() -> (hours: Int , leftMinutes: Int) {
+        return (self / 60, (self % 60))
+    }
+}

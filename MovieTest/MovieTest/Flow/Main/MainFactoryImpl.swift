@@ -14,10 +14,10 @@ extension ModuleFactoryImpl: MainFactory {
         return vc
     }
     
-    func makeMovieDetailView() -> MovieDetailView {
-        let vc = MovieDetailVC()
-        vc.viewModel = makeMovieDetailVM()
-        return vc
-    }
+//    func makeMovieDetailView() -> MovieDetailView {
+//        let vc = MovieDetailVC()
+//        vc.viewModel = makeMovieDetailVM()
+//        return vc
+//    }
     
 }

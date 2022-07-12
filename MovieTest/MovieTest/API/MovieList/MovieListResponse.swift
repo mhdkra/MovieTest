@@ -9,6 +9,10 @@ import Foundation
 
 // MARK: - MovieResponse
 struct MovieListResponse: Codable {
+    let success: Bool?
+    let statusCode: Int?
+    let statusMessage: String?
+    
     let page: Int?
     let results: [Movie]?
     let totalPages, totalResults: Int?

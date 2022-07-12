@@ -21,4 +21,8 @@ class ModuleFactoryImpl: DataModuleFactory {
         MovieListAPIImpl(httpClient: makeHTTPClient())
     }
     
+    func makeMovieDetailAPI() -> MovieDetailAPI{
+        MovieDetailAPIImpl(httpClient: makeHTTPClient())
+    }
+    
 }
