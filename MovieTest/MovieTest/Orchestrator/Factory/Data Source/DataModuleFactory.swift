@@ -13,5 +13,5 @@ protocol DataModuleFactory {
     func makeHTTPClient() -> HTTPClient
     
     // MARK: - API    
-    func makeCardsAPI() -> CardsAPI
+    func makeMovieListAPI() -> MovieListAPI
 }

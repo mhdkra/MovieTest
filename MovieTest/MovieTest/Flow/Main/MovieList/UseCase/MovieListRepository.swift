@@ -9,5 +9,5 @@ import Foundation
 import RxSwift
 
 protocol MovieListRepository {
-    func request() -> Single<([MovieModel])>
+    func request(parameters: [String: Any]) -> Single<([MovieModel])>
 }

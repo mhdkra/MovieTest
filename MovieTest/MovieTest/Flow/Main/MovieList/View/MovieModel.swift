@@ -10,5 +10,5 @@ import Foundation
 struct MovieModel {
     let name: String
     let release: String
-    let genres: String    
+    let genres: [Int]
 }

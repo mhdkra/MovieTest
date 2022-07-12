@@ -17,7 +17,7 @@ class HTTPAuth {
     }
     
     var apiKey: String {
-        return "a21c065e-0f74-42ac-854c-ea8b22edf6e5"
+        return "8b9049ddaa49d69a3c4bd84165dc0c66"
     }
     
     var bearerToken: String? {

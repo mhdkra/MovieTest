@@ -17,8 +17,8 @@ class ModuleFactoryImpl: DataModuleFactory {
         return HTTPClientImpl(identifier: makeBaseIdentifier())
     }
 
-    func makeCardsAPI() -> CardsAPI{
-        CardsAPIImpl(httpClient: makeHTTPClient())
+    func makeMovieListAPI() -> MovieListAPI{
+        MovieListAPIImpl(httpClient: makeHTTPClient())
     }
     
 }
