@@ -638,6 +638,7 @@
 				30D665CD287CCB3400DCEF39 /* Sources */,
 				30D665CE287CCB3400DCEF39 /* Frameworks */,
 				30D665CF287CCB3400DCEF39 /* Resources */,
+				73B539AC6DB41B17B585C3B0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -823,6 +824,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MovieTest-MovieTestUITests/Pods-MovieTest-MovieTestUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		73B539AC6DB41B17B585C3B0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MovieTestTests/Pods-MovieTestTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MovieTestTests/Pods-MovieTestTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MovieTestTests/Pods-MovieTestTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CFD9E0009C544E2822FDB4B5 /* [CP] Check Pods Manifest.lock */ = {
