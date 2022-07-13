@@ -44,7 +44,6 @@
 		30D665C6287CCB2D00DCEF39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30D665C4287CCB2D00DCEF39 /* Main.storyboard */; };
 		30D665C8287CCB3300DCEF39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30D665C7287CCB3300DCEF39 /* Assets.xcassets */; };
 		30D665CB287CCB3300DCEF39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30D665C9287CCB3300DCEF39 /* LaunchScreen.storyboard */; };
-		30D665D6287CCB3400DCEF39 /* MovieTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D665D5287CCB3400DCEF39 /* MovieTestTests.swift */; };
 		30D665E0287CCB3500DCEF39 /* MovieTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D665DF287CCB3500DCEF39 /* MovieTestUITests.swift */; };
 		30D665E2287CCB3500DCEF39 /* MovieTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D665E1287CCB3500DCEF39 /* MovieTestUITestsLaunchTests.swift */; };
 		30D6663F287CCC3400DCEF39 /* DeepLinkOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D665F0287CCC3300DCEF39 /* DeepLinkOption.swift */; };
@@ -159,7 +158,6 @@
 		30D665CA287CCB3300DCEF39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30D665CC287CCB3300DCEF39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30D665D1287CCB3400DCEF39 /* MovieTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		30D665D5287CCB3400DCEF39 /* MovieTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTestTests.swift; sourceTree = "<group>"; };
 		30D665DB287CCB3400DCEF39 /* MovieTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30D665DF287CCB3500DCEF39 /* MovieTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTestUITests.swift; sourceTree = "<group>"; };
 		30D665E1287CCB3500DCEF39 /* MovieTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -374,8 +372,8 @@
 			children = (
 				30D66630287CCC3300DCEF39 /* API */,
 				30D66605287CCC3300DCEF39 /* Flow */,
-				30D665EE287CCC3300DCEF39 /* Helper */,
 				30D66620287CCC3300DCEF39 /* Orchestrator */,
+				30D665EE287CCC3300DCEF39 /* Helper */,
 				305B9A61287CE29100507FA4 /* Resources */,
 				30D665C2287CCB2D00DCEF39 /* ViewController.swift */,
 				30D665C4287CCB2D00DCEF39 /* Main.storyboard */,
@@ -389,7 +387,6 @@
 		30D665D4287CCB3400DCEF39 /* MovieTestTests */ = {
 			isa = PBXGroup;
 			children = (
-				30D665D5287CCB3400DCEF39 /* MovieTestTests.swift */,
 				301D3C5E287F21C400EDA7AF /* MovieListVMTests.swift */,
 			);
 			path = MovieTestTests;
@@ -953,7 +950,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30D665D6287CCB3400DCEF39 /* MovieTestTests.swift in Sources */,
 				301D3C5F287F21C400EDA7AF /* MovieListVMTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
