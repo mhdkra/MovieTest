@@ -1,0 +1,54 @@
+PODS:
+  - ESPullToRefresh (2.9.3)
+  - JGProgressHUD (2.2)
+  - RxBlocking (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
+  - RxTest (6.5.0):
+    - RxSwift (= 6.5.0)
+  - SDWebImage (5.13.0):
+    - SDWebImage/Core (= 5.13.0)
+  - SDWebImage/Core (5.13.0)
+  - Wormholy (1.6.5)
+
+DEPENDENCIES:
+  - ESPullToRefresh
+  - JGProgressHUD
+  - RxBlocking (= 6.5.0)
+  - RxCocoa
+  - RxSwift
+  - RxTest (= 6.5.0)
+  - SDWebImage
+  - Wormholy
+
+SPEC REPOS:
+  trunk:
+    - ESPullToRefresh
+    - JGProgressHUD
+    - RxBlocking
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - RxTest
+    - SDWebImage
+    - Wormholy
+
+SPEC CHECKSUMS:
+  ESPullToRefresh: 0d68daa602b343c81753a1b95e09fd0bfcddfd40
+  JGProgressHUD: d83d7a981b85d11205e19ff8ad5bb9c40571c847
+  RxBlocking: 04b5fd28bb5ea49f7d64b80db8bbfe50d9cc1c7d
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  RxTest: eb2d23adefc5a5ebf5779c7792fa3edfe6ebcc17
+  SDWebImage: 0327043dbb9533e75f2eff8445b3df0f2ceca6ac
+  Wormholy: 3252bc3e55a1847ef9a0976c1377bd77bf3635fa
+
+PODFILE CHECKSUM: c347b7c38ad9ae33717b2b3d4011076e36958f2a
+
+COCOAPODS: 1.11.3

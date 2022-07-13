@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CastCell" customModule="MovieTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="80" height="124"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="80" height="124"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0X7-NU-xGS">
+                        <rect key="frame" x="0.0" y="0.0" width="80" height="124"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="POC-28-ka1">
+                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="POC-28-ka1" secondAttribute="height" multiplier="1:1" id="TAP-ya-JtY"/>
+                                    <constraint firstAttribute="width" constant="80" id="cdc-3o-kIs"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdH-dX-RvW">
+                                <rect key="frame" x="0.0" y="92" width="80" height="32"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
+                                <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="124" id="2Ze-s4-Eqt"/>
+                            <constraint firstItem="gdH-dX-RvW" firstAttribute="top" secondItem="POC-28-ka1" secondAttribute="bottom" constant="12" id="4QE-kY-nG6"/>
+                            <constraint firstItem="POC-28-ka1" firstAttribute="top" secondItem="0X7-NU-xGS" secondAttribute="top" id="Leu-gP-M53"/>
+                            <constraint firstAttribute="width" constant="80" id="MFQ-gV-ci1"/>
+                            <constraint firstItem="POC-28-ka1" firstAttribute="leading" secondItem="0X7-NU-xGS" secondAttribute="leading" id="Vyb-9w-3ok"/>
+                            <constraint firstItem="gdH-dX-RvW" firstAttribute="leading" secondItem="0X7-NU-xGS" secondAttribute="leading" id="cTi-Qn-xgg"/>
+                            <constraint firstAttribute="trailing" secondItem="POC-28-ka1" secondAttribute="trailing" id="eGh-cX-Mam"/>
+                            <constraint firstAttribute="bottom" secondItem="gdH-dX-RvW" secondAttribute="bottom" id="jje-Jd-sM8"/>
+                            <constraint firstAttribute="trailing" secondItem="gdH-dX-RvW" secondAttribute="trailing" id="uD9-ey-tTd"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="0X7-NU-xGS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="4fS-1M-KJ1"/>
+                <constraint firstItem="0X7-NU-xGS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="elf-Oj-WaR"/>
+                <constraint firstAttribute="trailing" secondItem="0X7-NU-xGS" secondAttribute="trailing" id="oBa-te-ZGA"/>
+                <constraint firstAttribute="bottom" secondItem="0X7-NU-xGS" secondAttribute="bottom" id="wZe-PC-SGj"/>
+            </constraints>
+            <size key="customSize" width="177" height="124"/>
+            <connections>
+                <outlet property="castImageView" destination="POC-28-ka1" id="j6J-Ym-aCl"/>
+                <outlet property="nameLabel" destination="gdH-dX-RvW" id="9fy-RB-qPN"/>
+            </connections>
+            <point key="canvasLocation" x="44.927536231884062" y="103.125"/>
+        </collectionViewCell>
+    </objects>
+</document>
