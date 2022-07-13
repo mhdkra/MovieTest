@@ -9,5 +9,5 @@ import Foundation
 
 protocol MainFactory {
     func makeMovieListView() -> MovieListView
-//    func makeMovieDetailView() -> MovieDetailView
+    func makeMovieDetailView() -> MovieDetailView
 }

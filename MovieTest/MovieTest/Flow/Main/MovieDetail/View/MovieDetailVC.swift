@@ -27,7 +27,7 @@ class MovieDetailVC: UIViewController,MovieDetailView {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
-//        idRelay.accept("\(id)")
+        idRelay.accept("\(id)")
         // Do any additional setup after loading the view.
     }
 
@@ -35,9 +35,9 @@ class MovieDetailVC: UIViewController,MovieDetailView {
         let input = MovieDetailVM.Input(id: self.idRelay.asObservable())
         let output = self.viewModel.transform(input)
         
-//        output.movie.drive { (movie) in
-//            self.movie = movie
-//        }.disposed(by: self.disposeBag)
+        output.movie.drive { (movie) in
+            self.movie = movie
+        }.disposed(by: self.disposeBag)
         
         output.state.drive { (state) in
             switch state {

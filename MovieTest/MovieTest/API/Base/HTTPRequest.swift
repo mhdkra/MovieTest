@@ -38,7 +38,7 @@ protocol HTTPBackupRequest {
 
 extension HTTPRequest {
     func request(with baseUrl: URL) -> URLRequest {
-        let url = "\(baseUrl.absoluteString)\(self.apiVersion.rawValue)\(self.path)"
+        let url = "\(baseUrl.absoluteString)/\(self.apiVersion.rawValue)\(self.path)"
         let finalUrl = URL(string: url)!
         
         var request = finalUrl.setParameter(parameters: parameters, method: method)

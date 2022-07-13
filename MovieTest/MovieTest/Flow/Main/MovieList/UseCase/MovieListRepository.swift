@@ -10,4 +10,5 @@ import RxSwift
 
 protocol MovieListRepository {
     func request(body: MovieListBody) -> Single<([MovieModel])>
+    func requestGenres(body: BaseBody) -> Single<([Genre])>
 }

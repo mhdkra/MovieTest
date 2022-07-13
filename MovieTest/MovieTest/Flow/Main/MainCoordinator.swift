@@ -25,14 +25,14 @@ class MainCoordinator: BaseCoordinator, MainCoordinatorOutput {
         let view = factory.makeMovieListView()
         view.onCardTapped = { [weak self] (movie) in
             guard let self = self else { return }
-//            self.showMovieDetail(movie: movie)
+            self.showMovieDetail(movie: movie)
         }
         router.setRootModule(view, hideBar: false, animation: .bottomUp)
     }
     
-//    private func showMovieDetail(movie: MovieModel) {
-//        var view = factory.makeMovieDetailView()
-//        view.id = movie.id
-//        router.push(view)
-//    }
+    private func showMovieDetail(movie: MovieModel) {
+        var view = factory.makeMovieDetailView()
+        view.id = movie.id
+        router.push(view)
+    }
 }

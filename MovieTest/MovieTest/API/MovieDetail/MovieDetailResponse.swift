@@ -41,12 +41,6 @@ struct BelongsToCollection: Codable {
     let name, posterPath, backdropPath: String?
 }
 
-// MARK: - Genre
-struct Genre: Codable {
-    let id: Int?
-    let name: String?
-}
-
 // MARK: - ProductionCompany
 struct ProductionCompany: Codable {
     let id: Int?

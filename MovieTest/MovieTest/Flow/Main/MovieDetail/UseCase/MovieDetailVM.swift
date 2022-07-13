@@ -21,7 +21,7 @@ class MovieDetailVM: BaseViewModel {
     }
     
     struct Output {
-//        let movie: Driver<MovieDetailModel>
+        let movie: Driver<MovieDetailModel?>
         let state: Driver<BasicUIState>
 
     }
@@ -32,8 +32,8 @@ class MovieDetailVM: BaseViewModel {
     
     func transform(_ input: Input) -> Output {
         self.makeRequestDetail(input)
-        return Output(//movie: self.detailRelay.asDriver().skip(1),
-                      state: self.stateRelay.asDriver().skip(1))
+        return Output(movie: self.detailRelay.asDriver().skip(1),
+                    state: self.stateRelay.asDriver().skip(1))
     }
     
     private func makeRequestDetail(_ input: Input) {

@@ -7,7 +7,7 @@
 
 import Foundation
 struct MovieListBody: Codable {
-    var apiKey: String = HTTPAuth.shared.apiKey
+    var api_key: String = HTTPAuth.shared.apiKey
     let query : String?
     let page: Int?
 

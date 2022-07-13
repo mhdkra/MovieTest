@@ -12,4 +12,5 @@ struct MovieModel {
     let name: String
     let release: String
     let genres: [Int]
+    let imageUrl: String
 }

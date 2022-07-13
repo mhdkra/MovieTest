@@ -22,8 +22,8 @@ protocol HTTPIdentifier {
 
 class BaseIdentifier: HTTPIdentifier {
 #if DEBUG
-    var baseUrl = URL(string: "https://www.themoviedb.org")!
+    var baseUrl = URL(string: "https://api.themoviedb.org")!
 #else
-    var baseUrl = URL(string: "https://www.themoviedb.org")!
+    var baseUrl = URL(string: "https://api.themoviedb.org")!
 #endif
 }

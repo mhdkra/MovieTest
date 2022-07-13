@@ -9,7 +9,7 @@ import Foundation
 
 extension ModuleFactoryImpl: RepositoryModuleFactory {
     func makeMovieListRepo() -> MovieListRepository{
-        return MovieListRepositoryImpl(movieListAPI: makeMovieListAPI())
+        return MovieListRepositoryImpl(movieListAPI: makeMovieListAPI(), genresAPI: makeGenresAPI())
     }
     
     func makeMovieDetailRepo() -> MovieDetailRepository{

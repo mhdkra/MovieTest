@@ -18,7 +18,16 @@ class MovieListVC: UIViewController, MovieListView {
     var viewModel: MovieListVM!
     var onCardTapped: ((MovieModel) -> Void)?
     
-    private var movies = [MovieModel]()
+    private var movies = [MovieModel](){
+        didSet{
+            tableView.reloadData()
+        }
+    }
+    private var genres = [Genre](){
+        didSet{
+            tableView.reloadData()
+        }
+    }
     private let hud = JGProgressHUD(style: .dark)
     private let disposeBag = DisposeBag()
     private let viewDidLoadRelay = PublishRelay<Void>()
@@ -27,7 +36,7 @@ class MovieListVC: UIViewController, MovieListView {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
-        setupCollectionView()
+        setupTableView()
         self.viewDidLoadRelay.accept(())
     }
     
@@ -38,13 +47,18 @@ class MovieListVC: UIViewController, MovieListView {
     
     func bindViewModel() {
         let input = MovieListVM.Input(viewDidLoadRelay: self.viewDidLoadRelay.asObservable(),
-                                     loadMoreRelay: self.loadMoreRelay.asObservable(),
-                                     keyword: self.searchBar.rx.text.orEmpty.asObservable())
-                                     
+                                      loadMoreRelay: self.loadMoreRelay.asObservable(),
+                                      keyword: self.searchBar.rx.text.orEmpty.asObservable())
+        
         let output = self.viewModel.transform(input)
         
         output.movies.drive { (movies) in
             self.movies = movies
+            self.tableView.reloadData()
+        }.disposed(by: self.disposeBag)
+        
+        output.genres.drive { (movies) in
+            self.genres = movies
             self.tableView.reloadData()
         }.disposed(by: self.disposeBag)
         
@@ -76,7 +90,7 @@ class MovieListVC: UIViewController, MovieListView {
         searchBar.placeholder = "Search"
     }
     
-    private func setupCollectionView(){
+    private func setupTableView(){
         tableView.registerCell(type: MovieCell.self)
         tableView.dataSource = self
         tableView.delegate = self
@@ -91,10 +105,25 @@ extension MovieListVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueCell(
-             withType: MovieCell.self,
-             for: indexPath) as? MovieCell else {
-                  return UITableViewCell()
+            withType: MovieCell.self,
+            for: indexPath) as? MovieCell else {
+            return UITableViewCell()
         }
+        let data = movies[indexPath.row]
+        cell.titleLabel.text = data.name
+        cell.releaseLabel.text = "\(data.release.convertToDisplayFormat())"
+        if let url = URL(string: data.imageUrl){
+            cell.posterImageView?.sd_setImage(with: url, completed: {_,_,_,_ in
+                cell.setNeedsLayout()
+            })
+        }
+        let resultArray = genres.filter { data.genres.contains($0.id ?? 0) }
+        let returns = resultArray
+            .compactMap { $0.name }
+            .map { "\($0)" }
+        let joined = returns.joined(separator: ", ")
+        cell.genres.text = joined
+        
         return cell
     }
     
@@ -102,7 +131,7 @@ extension MovieListVC: UITableViewDelegate, UITableViewDataSource{
         let target = self.movies[indexPath.row]
         onCardTapped?(target)
     }
-
+    
 }
 
 extension MovieListVC {
