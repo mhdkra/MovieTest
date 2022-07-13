@@ -38,6 +38,7 @@ class MovieListVM: BaseViewModel {
     
     
     func transform(_ input: Input) -> Output {
+        self.makeRequestGenres(input)
         self.makeRequestSearch(input)
         return Output(movies: self.moviesRelay.asDriver().skip(1),
                       genres: self.genressRelay.asDriver().skip(1),
@@ -46,10 +47,9 @@ class MovieListVM: BaseViewModel {
     
     private func makeRequestGenres(_ input: Input) {
         input
-            .keyword
+            .viewDidLoadRelay
             .subscribe { (key) in
-                self.keyword = key.element ?? ""
-                self.requestMovies(keyword: self.keyword)
+                self.requestGenres()
             }.disposed(by: self.disposeBag)
     }
 
@@ -80,7 +80,7 @@ class MovieListVM: BaseViewModel {
             }.disposed(by: self.disposeBag)
     }
     
-    private func requestGenres(keyword: String) {
+    private func requestGenres() {
         self.repository
             .requestGenres(body: BaseBody(api_key: HTTPAuth.shared.apiKey))
             .subscribe { (result) in

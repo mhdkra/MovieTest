@@ -15,9 +15,8 @@ class MovieDetailVM: BaseViewModel {
     private let disposeBag = DisposeBag()
     private let detailRelay = BehaviorRelay<MovieDetailModel?>(value: nil)
     private let stateRelay = BehaviorRelay<BasicUIState>(value: .loading)
- 
     struct Input {
-        let id: Observable<(String)>
+        let id: Observable<(Int)>
     }
     
     struct Output {
@@ -37,8 +36,22 @@ class MovieDetailVM: BaseViewModel {
     }
     
     private func makeRequestDetail(_ input: Input) {
-        
+        input
+            .id
+            .subscribe { (id) in
+                self.requestDetail(id: id)
+            }.disposed(by: self.disposeBag)
     }
-
+    
+    private func requestDetail(id: Int) {
+        self.repository
+            .requestDetail(id: id)
+            .subscribe { (result) in
+                self.stateRelay.accept(.close)
+                self.detailRelay.accept(result)
+            } onFailure: { (error) in
+                self.stateRelay.accept(.failure(error.readableError))
+            }.disposed(by: self.disposeBag)
+    }
 
 }

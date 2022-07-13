@@ -12,22 +12,27 @@ import JGProgressHUD
 import SDWebImage
 
 class MovieDetailVC: UIViewController,MovieDetailView {
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var genreLabel: UILabel!
+    @IBOutlet weak var posterImageView: UIImageView!
+    @IBOutlet weak var overviewTextView: UITextView!
+    @IBOutlet weak var collectionView: UICollectionView!
     var viewModel: MovieDetailVM!
-    var id: Int!
     
     private let disposeBag = DisposeBag()
     private let hud = JGProgressHUD(style: .dark)
-    private let idRelay = BehaviorRelay<(String)>(value: (""))
+    private let idRelay = BehaviorRelay<(Int)>(value: (0))
     
-    var movie : MovieDetailModel? {
+    var model : MovieDetailModel! {
         didSet{
-           
+            self.setupView(model: model)
         }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
-        idRelay.accept("\(id)")
+        idRelay.accept(model?.id ?? 0)
         // Do any additional setup after loading the view.
     }
 
@@ -36,7 +41,7 @@ class MovieDetailVC: UIViewController,MovieDetailView {
         let output = self.viewModel.transform(input)
         
         output.movie.drive { (movie) in
-            self.movie = movie
+            self.model = movie
         }.disposed(by: self.disposeBag)
         
         output.state.drive { (state) in
@@ -51,7 +56,22 @@ class MovieDetailVC: UIViewController,MovieDetailView {
             }
         }.disposed(by: self.disposeBag)
     }
+    
+    private func setupView(model: MovieDetailModel){
+        if let url = URL(string: model.movieImage){
+            posterImageView?.sd_setImage(with: url, completed: {_,_,_,_ in
+                self.view.setNeedsLayout()
+            })
+        }
+        self.overviewTextView.text = model.overview
+        self.titleLabel.text = model.title
+        self.durationLabel.text = model.duration
+        
+    }
   
+    @IBAction func backTapped(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 extension MovieDetailVC {

@@ -9,5 +9,5 @@ import Foundation
 
 protocol MovieDetailView: BaseView {
     var viewModel: MovieDetailVM! { get set }
-    var id: Int! {get set}
+    var model: MovieDetailModel! {get set}
 }

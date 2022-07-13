@@ -31,8 +31,8 @@ class MainCoordinator: BaseCoordinator, MainCoordinatorOutput {
     }
     
     private func showMovieDetail(movie: MovieModel) {
-        var view = factory.makeMovieDetailView()
-        view.id = movie.id
+        let view = factory.makeMovieDetailView()
+        view.model = MovieDetailModel(id: movie.id, title: movie.name, movieImage: movie.imageUrl, duration: "", genres: [], overview: movie.overview)
         router.push(view)
     }
 }

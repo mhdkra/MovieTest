@@ -42,13 +42,13 @@ class MovieDetailRepositoryImpl: MovieDetailRepository {
         if response.statusMessage != nil{
             return .failure(HTTPError.internalError)
         }
-        guard let imageUrl = URL(string: "https://www.themoviedb.org/t/p/w500\(response.posterPath ?? "")") else{ return .failure(HTTPError.internalError) }
+        let imageUrl = "https://www.themoviedb.org/t/p/w500\(response.posterPath ?? "")"
         let duration = response.runtime?.minutesToHoursAndMinutes()
         let genreArr = response.genres?
             .compactMap { $0.name }
             .map { "\($0)" } ?? []
         
-        let model = MovieDetailModel(id: response.id ?? 0, movieImage: imageUrl,
+        let model = MovieDetailModel(id: response.id ?? 0, title: response.title ?? "", movieImage: imageUrl,
                                      duration: "\(duration?.0 ?? 0)h \(duration?.1 ?? 0)m",
                                      genres: genreArr,
                                      overview: response.overview ?? "")
