@@ -102,8 +102,7 @@ extension MovieDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueCell(with: CastCell.self, for: indexPath) else {
-            return UICollectionViewCell()}
+        guard let cell = collectionView.dequeueCell(with: CastCell.self, for: indexPath) else { return UICollectionViewCell()}
         let target = self.casts[indexPath.row]
         let img = "https://www.themoviedb.org/t/p/w500\(target.imageUrl)"
         if let url = URL(string: img){
