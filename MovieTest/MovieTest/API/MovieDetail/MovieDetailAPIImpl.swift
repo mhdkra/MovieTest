@@ -20,6 +20,7 @@ class MovieDetailAPIImpl: MovieDetailAPI {
         
         init(id: Int) {
             self.path = "/movie/\(id)"
+            self.parameters = BaseBody(api_key: HTTPAuth.shared.apiKey).dictionary ?? [String:Any]()
         }
     }
     

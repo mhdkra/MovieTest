@@ -10,9 +10,6 @@ import RxSwift
 import RxCocoa
 
 class MovieListVM: BaseViewModel {
-
-
-    
     private let repository: MovieListRepository
     private let disposeBag = DisposeBag()
     private let moviesRelay = BehaviorRelay<[MovieModel]>(value: [])

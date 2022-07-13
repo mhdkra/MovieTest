@@ -24,14 +24,13 @@ class MovieDetailVC: UIViewController,MovieDetailView {
     private let hud = JGProgressHUD(style: .dark)
     private let idRelay = BehaviorRelay<(Int)>(value: (0))
     
-    var model : MovieDetailModel! {
-        didSet{
-            self.setupView(model: model)
-        }
-    }
+    var model : MovieDetailModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
+        guard let m = model else{return}
+        self.setupView(model: m)
         idRelay.accept(model?.id ?? 0)
         // Do any additional setup after loading the view.
     }
@@ -42,6 +41,7 @@ class MovieDetailVC: UIViewController,MovieDetailView {
         
         output.movie.drive { (movie) in
             self.model = movie
+            self.setupView(model: self.model)
         }.disposed(by: self.disposeBag)
         
         output.state.drive { (state) in
@@ -66,6 +66,7 @@ class MovieDetailVC: UIViewController,MovieDetailView {
         self.overviewTextView.text = model.overview
         self.titleLabel.text = model.title
         self.durationLabel.text = model.duration
+        self.genreLabel.text = model.genres.joined(separator: ", ")
         
     }
   

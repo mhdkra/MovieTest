@@ -49,7 +49,7 @@ class MovieDetailRepositoryImpl: MovieDetailRepository {
             .map { "\($0)" } ?? []
         
         let model = MovieDetailModel(id: response.id ?? 0, title: response.title ?? "", movieImage: imageUrl,
-                                     duration: "\(duration?.0 ?? 0)h \(duration?.1 ?? 0)m",
+                                     duration: "\(duration?.0 ?? 0) h \(duration?.1 ?? 0) m",
                                      genres: genreArr,
                                      overview: response.overview ?? "")
         return .success(model)
