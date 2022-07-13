@@ -29,4 +29,8 @@ class ModuleFactoryImpl: DataModuleFactory {
         GenresAPIImpl(httpClient: makeHTTPClient())
     }
     
+    func makeCastListAPI() -> CastListAPI{
+        CastListAPIImpl(httpClient: makeHTTPClient())
+    }
+    
 }

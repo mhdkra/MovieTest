@@ -23,12 +23,18 @@ class MovieDetailVC: UIViewController,MovieDetailView {
     private let disposeBag = DisposeBag()
     private let hud = JGProgressHUD(style: .dark)
     private let idRelay = BehaviorRelay<(Int)>(value: (0))
-    
+    private let layout = UICollectionViewFlowLayout()
+
     var model : MovieDetailModel!
-    
+    var casts : [CastModel] = []{
+        didSet{
+            collectionView.reloadData()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
+        setupCollectionView()
         guard let m = model else{return}
         self.setupView(model: m)
         idRelay.accept(model?.id ?? 0)
@@ -44,6 +50,10 @@ class MovieDetailVC: UIViewController,MovieDetailView {
             self.setupView(model: self.model)
         }.disposed(by: self.disposeBag)
         
+        output.casts.drive { (cast) in
+            self.casts = cast
+        }.disposed(by: self.disposeBag)
+        
         output.state.drive { (state) in
             switch state {
             case .loading:
@@ -55,6 +65,17 @@ class MovieDetailVC: UIViewController,MovieDetailView {
             default: break
             }
         }.disposed(by: self.disposeBag)
+    }
+    
+    private func setupCollectionView(){
+        collectionView.registerNIBForCell(with: CastCell.self)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        self.collectionView.collectionViewLayout = layout
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 8
+        layout.sectionInset.left = 8
     }
     
     private func setupView(model: MovieDetailModel){
@@ -74,6 +95,31 @@ class MovieDetailVC: UIViewController,MovieDetailView {
         self.navigationController?.popViewController(animated: true)
     }
 }
+
+extension MovieDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.casts.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueCell(with: CastCell.self, for: indexPath) else {
+            return UICollectionViewCell()}
+        let target = self.casts[indexPath.row]
+        let img = "https://www.themoviedb.org/t/p/w500\(target.imageUrl)"
+        if let url = URL(string: img){
+            posterImageView?.sd_setImage(with: url, completed: {_,_,_,_ in
+                self.view.setNeedsLayout()
+            })
+        }
+        cell.nameLabel.text = target.name
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 80, height: 124)
+    }
+}
+
 
 extension MovieDetailVC {
     private func showLoading() {

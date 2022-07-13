@@ -15,6 +15,11 @@
 		3044EB81287E48FC002022B2 /* GenreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3044EB80287E48FC002022B2 /* GenreResponse.swift */; };
 		3044EB83287E4998002022B2 /* GenresAPIImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3044EB82287E4998002022B2 /* GenresAPIImpl.swift */; };
 		3044EB85287E4B40002022B2 /* BaseBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3044EB84287E4B40002022B2 /* BaseBody.swift */; };
+		3044EB88287E6B1D002022B2 /* CastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3044EB86287E6B1D002022B2 /* CastCell.swift */; };
+		3044EB89287E6B1D002022B2 /* CastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3044EB87287E6B1D002022B2 /* CastCell.xib */; };
+		3044EB8C287E6C64002022B2 /* CastListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3044EB8B287E6C64002022B2 /* CastListResponse.swift */; };
+		3044EB8E287E6D68002022B2 /* CastListAPIImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3044EB8D287E6D68002022B2 /* CastListAPIImpl.swift */; };
+		3044EB90287E6DA5002022B2 /* CastListAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3044EB8F287E6DA5002022B2 /* CastListAPI.swift */; };
 		305B9A5C287CD21900507FA4 /* MovieListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B9A5B287CD21900507FA4 /* MovieListVM.swift */; };
 		305B9A5E287CD25700507FA4 /* MovieListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B9A5D287CD25700507FA4 /* MovieListRepository.swift */; };
 		305B9A60287CD26800507FA4 /* MovieListRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305B9A5F287CD26800507FA4 /* MovieListRepositoryImpl.swift */; };
@@ -53,7 +58,7 @@
 		30D66648287CCC3400DCEF39 /* UIColor+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D665FC287CCC3300DCEF39 /* UIColor+Extentions.swift */; };
 		30D66649287CCC3400DCEF39 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D665FD287CCC3300DCEF39 /* UIView+Extensions.swift */; };
 		30D6664A287CCC3400DCEF39 /* NSObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D665FE287CCC3300DCEF39 /* NSObject+Extensions.swift */; };
-		30D6664B287CCC3400DCEF39 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D665FF287CCC3300DCEF39 /* UITableView+Extensions.swift */; };
+		30D6664B287CCC3400DCEF39 /* UITableView, UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D665FF287CCC3300DCEF39 /* UITableView, UICollectionView+Extensions.swift */; };
 		30D6664C287CCC3400DCEF39 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D66600287CCC3300DCEF39 /* Animator.swift */; };
 		30D6664D287CCC3400DCEF39 /* ScheduleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D66601287CCC3300DCEF39 /* ScheduleProvider.swift */; };
 		30D6664E287CCC3400DCEF39 /* Webview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D66602287CCC3300DCEF39 /* Webview.swift */; };
@@ -121,6 +126,11 @@
 		3044EB80287E48FC002022B2 /* GenreResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreResponse.swift; sourceTree = "<group>"; };
 		3044EB82287E4998002022B2 /* GenresAPIImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresAPIImpl.swift; sourceTree = "<group>"; };
 		3044EB84287E4B40002022B2 /* BaseBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBody.swift; sourceTree = "<group>"; };
+		3044EB86287E6B1D002022B2 /* CastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCell.swift; sourceTree = "<group>"; };
+		3044EB87287E6B1D002022B2 /* CastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastCell.xib; sourceTree = "<group>"; };
+		3044EB8B287E6C64002022B2 /* CastListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastListResponse.swift; sourceTree = "<group>"; };
+		3044EB8D287E6D68002022B2 /* CastListAPIImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastListAPIImpl.swift; sourceTree = "<group>"; };
+		3044EB8F287E6DA5002022B2 /* CastListAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastListAPI.swift; sourceTree = "<group>"; };
 		305B9A5B287CD21900507FA4 /* MovieListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListVM.swift; sourceTree = "<group>"; };
 		305B9A5D287CD25700507FA4 /* MovieListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListRepository.swift; sourceTree = "<group>"; };
 		305B9A5F287CD26800507FA4 /* MovieListRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListRepositoryImpl.swift; sourceTree = "<group>"; };
@@ -163,7 +173,7 @@
 		30D665FC287CCC3300DCEF39 /* UIColor+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extentions.swift"; sourceTree = "<group>"; };
 		30D665FD287CCC3300DCEF39 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		30D665FE287CCC3300DCEF39 /* NSObject+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Extensions.swift"; sourceTree = "<group>"; };
-		30D665FF287CCC3300DCEF39 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
+		30D665FF287CCC3300DCEF39 /* UITableView, UICollectionView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView, UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
 		30D66600287CCC3300DCEF39 /* Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		30D66601287CCC3300DCEF39 /* ScheduleProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleProvider.swift; sourceTree = "<group>"; };
 		30D66602287CCC3300DCEF39 /* Webview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Webview.swift; sourceTree = "<group>"; };
@@ -244,6 +254,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		3044EB8A287E6C4F002022B2 /* Cast */ = {
+			isa = PBXGroup;
+			children = (
+				3044EB8B287E6C64002022B2 /* CastListResponse.swift */,
+				3044EB8D287E6D68002022B2 /* CastListAPIImpl.swift */,
+				3044EB8F287E6DA5002022B2 /* CastListAPI.swift */,
+			);
+			path = Cast;
+			sourceTree = "<group>";
+		};
 		305B9A61287CE29100507FA4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,6 +329,8 @@
 				30C45D83287CFC0900545B2A /* MovieDetailVC.xib */,
 				30C45D86287CFC3B00545B2A /* MovieDetailModel.swift */,
 				30C45D88287CFC4700545B2A /* MovieDetailView.swift */,
+				3044EB86287E6B1D002022B2 /* CastCell.swift */,
+				3044EB87287E6B1D002022B2 /* CastCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -431,7 +453,7 @@
 				30D665FC287CCC3300DCEF39 /* UIColor+Extentions.swift */,
 				30D665FD287CCC3300DCEF39 /* UIView+Extensions.swift */,
 				30D665FE287CCC3300DCEF39 /* NSObject+Extensions.swift */,
-				30D665FF287CCC3300DCEF39 /* UITableView+Extensions.swift */,
+				30D665FF287CCC3300DCEF39 /* UITableView, UICollectionView+Extensions.swift */,
 				3044EB7C287E3638002022B2 /* String+ Extentions.swift */,
 			);
 			path = Extensions;
@@ -519,6 +541,7 @@
 		30D66630287CCC3300DCEF39 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				3044EB8A287E6C4F002022B2 /* Cast */,
 				30C45D7C287CFB8400545B2A /* MovieDetail */,
 				30C45D7B287CFB7E00545B2A /* Genres */,
 				30C45D72287CE64E00545B2A /* MovieList */,
@@ -700,6 +723,7 @@
 				305B9A67287CE2F900507FA4 /* Poppins-Regular.ttf in Resources */,
 				305B9A68287CE2F900507FA4 /* Poppins-Bold.ttf in Resources */,
 				30D665C6287CCB2D00DCEF39 /* Main.storyboard in Resources */,
+				3044EB89287E6B1D002022B2 /* CastCell.xib in Resources */,
 				305B9A66287CE2F900507FA4 /* Poppins-SemiBold.ttf in Resources */,
 				30D66684287CCFB500DCEF39 /* MovieCell.xib in Resources */,
 				30D66680287CCF9400DCEF39 /* MovieListVC.xib in Resources */,
@@ -843,7 +867,7 @@
 				30D6664D287CCC3400DCEF39 /* ScheduleProvider.swift in Sources */,
 				30D66646287CCC3400DCEF39 /* BaseViewModel.swift in Sources */,
 				3044EB81287E48FC002022B2 /* GenreResponse.swift in Sources */,
-				30D6664B287CCC3400DCEF39 /* UITableView+Extensions.swift in Sources */,
+				30D6664B287CCC3400DCEF39 /* UITableView, UICollectionView+Extensions.swift in Sources */,
 				30C45D87287CFC3B00545B2A /* MovieDetailModel.swift in Sources */,
 				305B9A5E287CD25700507FA4 /* MovieListRepository.swift in Sources */,
 				30D66666287CCC3400DCEF39 /* AppDelegate.swift in Sources */,
@@ -858,6 +882,7 @@
 				30D6665A287CCC3400DCEF39 /* MainFactoryImpl.swift in Sources */,
 				30D66675287CCC3400DCEF39 /* HTTPError.swift in Sources */,
 				30D6665B287CCC3400DCEF39 /* MainCoordinatorOutput.swift in Sources */,
+				3044EB88287E6B1D002022B2 /* CastCell.swift in Sources */,
 				30C45D84287CFC0900545B2A /* MovieDetailVC.swift in Sources */,
 				3044EB7B287E0D40002022B2 /* MovieDetailRepositoryImpl.swift in Sources */,
 				30D66683287CCFB500DCEF39 /* MovieCell.swift in Sources */,
@@ -874,8 +899,10 @@
 				3044EB7F287E48E2002022B2 /* GenresAPI.swift in Sources */,
 				305B9A60287CD26800507FA4 /* MovieListRepositoryImpl.swift in Sources */,
 				30C45D8F287D1DC200545B2A /* MovieDetailAPI.swift in Sources */,
+				3044EB8C287E6C64002022B2 /* CastListResponse.swift in Sources */,
 				30D66674287CCC3400DCEF39 /* HTTPClient.swift in Sources */,
 				30D66665287CCC3400DCEF39 /* CoordinatorFactoryImpl.swift in Sources */,
+				3044EB8E287E6D68002022B2 /* CastListAPIImpl.swift in Sources */,
 				3044EB83287E4998002022B2 /* GenresAPIImpl.swift in Sources */,
 				30D6663F287CCC3400DCEF39 /* DeepLinkOption.swift in Sources */,
 				30D66669287CCC3400DCEF39 /* RepositoryModuleFactoryImpl.swift in Sources */,
@@ -896,6 +923,7 @@
 				30D66689287CD00000DCEF39 /* MovieListView.swift in Sources */,
 				30D66667287CCC3400DCEF39 /* CoordinatorFactory.swift in Sources */,
 				30D66648287CCC3400DCEF39 /* UIColor+Extentions.swift in Sources */,
+				3044EB90287E6DA5002022B2 /* CastListAPI.swift in Sources */,
 				30D66641287CCC3400DCEF39 /* Presentable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

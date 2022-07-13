@@ -10,4 +10,5 @@ import RxSwift
 
 protocol MovieDetailRepository {
     func requestDetail(id: Int) -> Single<(MovieDetailModel)>
+    func requestCasts(id: Int) -> Single<[CastModel]>
 }

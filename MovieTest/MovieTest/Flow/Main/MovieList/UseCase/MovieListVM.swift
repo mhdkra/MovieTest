@@ -92,5 +92,7 @@ class MovieListVM: BaseViewModel {
                 self.stateRelay.accept(.failure(error.readableError))
             }.disposed(by: self.disposeBag)
     }
+    
+    
 
 }

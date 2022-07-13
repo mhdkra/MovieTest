@@ -9,12 +9,13 @@ import Foundation
 import RxSwift
 
 class MovieDetailRepositoryImpl: MovieDetailRepository {
-    
+    private let castListAPI: CastListAPI
     private let movieDetailAPI: MovieDetailAPI
     private let disposeBag = DisposeBag()
     
-    init(movieDetailAPI: MovieDetailAPI) {
+    init(movieDetailAPI: MovieDetailAPI, castListAPI : CastListAPI) {
         self.movieDetailAPI = movieDetailAPI
+        self.castListAPI = castListAPI
     }
 
     func requestDetail(id: Int) -> Single<(MovieDetailModel)> {
@@ -53,6 +54,37 @@ class MovieDetailRepositoryImpl: MovieDetailRepository {
                                      genres: genreArr,
                                      overview: response.overview ?? "")
         return .success(model)
+    }
+    
+    func requestCasts(id: Int) -> Single<[CastModel]> {
+        return Single.create { (observer) in
+            
+            self.castListAPI
+                .request(id: id)
+                .map { self.outputTransformModelCast($0) }
+                .subscribe { (result) in
+                    switch result {
+                    case .success(let model):
+                        observer(.success(model))
+                    case .failure(let error):
+                        observer(.failure(error))
+                    }
+                } onFailure: { (error) in
+                    observer(.failure(error))
+                }.disposed(by: self.disposeBag)
+            
+            return Disposables.create()
+        }
+    }
+    
+    private func outputTransformModelCast(_ response: CastListResponse) -> Result<[CastModel], HTTPError> {
+        if let datas = response.cast {
+            let model = datas.map { (res) in
+                return CastModel(name: res.name ?? "", imageUrl: res.profilePath ?? "")
+            }
+            return .success(model)
+        }
+        return .failure(HTTPError.internalError)
     }
 }
 

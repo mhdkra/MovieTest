@@ -14,4 +14,5 @@ protocol DataModuleFactory {
     
     // MARK: - API    
     func makeMovieListAPI() -> MovieListAPI
+    func makeCastListAPI() -> CastListAPI
 }

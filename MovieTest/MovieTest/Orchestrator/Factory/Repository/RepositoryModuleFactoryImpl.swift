@@ -13,6 +13,6 @@ extension ModuleFactoryImpl: RepositoryModuleFactory {
     }
     
     func makeMovieDetailRepo() -> MovieDetailRepository{
-        return MovieDetailRepositoryImpl(movieDetailAPI: makeMovieDetailAPI())
+        return MovieDetailRepositoryImpl(movieDetailAPI: makeMovieDetailAPI(), castListAPI: makeCastListAPI())
     }
 }

@@ -19,5 +19,5 @@ struct MovieDetailModel {
 
 struct CastModel{
     let name: String
-    let image: UIImage
+    let imageUrl: String
 }
