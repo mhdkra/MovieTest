@@ -16,7 +16,7 @@ class MovieDetailVC: UIViewController,MovieDetailView {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
-    @IBOutlet weak var overviewTextView: UITextView!
+    @IBOutlet weak var overviewLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     var viewModel: MovieDetailVM!
     
@@ -84,7 +84,7 @@ class MovieDetailVC: UIViewController,MovieDetailView {
                 self.view.setNeedsLayout()
             })
         }
-        self.overviewTextView.text = model.overview
+        self.overviewLabel.text = model.overview
         self.titleLabel.text = model.title
         self.durationLabel.text = model.duration
         self.genreLabel.text = model.genres.joined(separator: ", ")
@@ -106,8 +106,9 @@ extension MovieDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, U
         let target = self.casts[indexPath.row]
         let img = "https://www.themoviedb.org/t/p/w500\(target.imageUrl)"
         if let url = URL(string: img){
-            posterImageView?.sd_setImage(with: url, completed: {_,_,_,_ in
-                self.view.setNeedsLayout()
+            cell.castImageView?.layer.cornerRadius = cell.castImageView.frame.height/2
+            cell.castImageView?.sd_setImage(with: url, completed: {_,_,_,_ in
+                cell.setNeedsLayout()
             })
         }
         cell.nameLabel.text = target.name
