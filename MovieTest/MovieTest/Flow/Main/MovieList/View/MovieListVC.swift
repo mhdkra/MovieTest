@@ -32,7 +32,7 @@ class MovieListVC: UIViewController, MovieListView {
     private let disposeBag = DisposeBag()
     private let viewDidLoadRelay = PublishRelay<Void>()
     private let loadMoreRelay = PublishRelay<Void>()
-    
+    private var isLoadingList : Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
@@ -73,7 +73,9 @@ class MovieListVC: UIViewController, MovieListView {
             case .success(let message):
                 self.showAlert(message: message, isSuccess: true)
             case .stopLoadMore:
+                self.isLoadingList = false
                 self.tableView.es.stopLoadingMore()
+                self.tableView.reloadData()
             case .stopRefresh:
                 self.tableView.es.stopPullToRefresh()
             default: break
@@ -124,6 +126,10 @@ extension MovieListVC: UITableViewDelegate, UITableViewDataSource{
         let joined = returns.joined(separator: ", ")
         cell.genres.text = joined
         
+        if indexPath.row == self.movies.count - 1 {
+            isLoadingList = true
+            loadMoreRelay.accept(())
+        }
         return cell
     }
     
@@ -131,7 +137,7 @@ extension MovieListVC: UITableViewDelegate, UITableViewDataSource{
         let target = self.movies[indexPath.row]
         onCardTapped?(target)
     }
-    
+
 }
 
 extension MovieListVC {
@@ -149,11 +155,7 @@ extension MovieListVC {
             self.hud.indicatorView = nil
             self.hud.textLabel.font = .systemFont(ofSize: 21)
             self.hud.textLabel.text = message
-            if isSuccess {
-                self.hud.indicatorView = JGProgressHUDSuccessIndicatorView()
-            } else {
-                self.hud.indicatorView = JGProgressHUDErrorIndicatorView()
-            }
+            self.hud.indicatorView = isSuccess ? JGProgressHUDSuccessIndicatorView() : JGProgressHUDErrorIndicatorView()
             self.hud.dismiss(afterDelay: 1.0)
         }
     }

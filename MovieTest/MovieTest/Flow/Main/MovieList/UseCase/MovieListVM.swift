@@ -17,6 +17,20 @@ class MovieListVM: BaseViewModel {
     private let stateRelay = BehaviorRelay<BasicUIState>(value: .loading)
     private var page = 1
     private var keyword = ""
+    
+    static var getAllGenres: [Genre] {
+        if let objects = UserDefaults.standard.value(forKey: "genres") as? Data {
+            let decoder = JSONDecoder()
+            if let objectsDecoded = try? decoder.decode(Array.self, from: objects) as [Genre] {
+                return objectsDecoded
+            } else {
+                return []
+            }
+        } else {
+            return []
+        }
+    }
+    
     struct Input {
         let viewDidLoadRelay: Observable<Void>
         let loadMoreRelay: Observable<Void>
@@ -37,6 +51,7 @@ class MovieListVM: BaseViewModel {
     func transform(_ input: Input) -> Output {
         self.makeRequestGenres(input)
         self.makeRequestSearch(input)
+        self.makeRequestSearchLoadmore(input)
         return Output(movies: self.moviesRelay.asDriver().skip(1),
                       genres: self.genressRelay.asDriver().skip(1),
                       state: self.stateRelay.asDriver().skip(1))
@@ -49,7 +64,6 @@ class MovieListVM: BaseViewModel {
                 self.requestGenres()
             }.disposed(by: self.disposeBag)
     }
-
     
     private func makeRequestSearch(_ input: Input) {
         input
@@ -59,19 +73,36 @@ class MovieListVM: BaseViewModel {
                 self.requestMovies(keyword: self.keyword)
             }.disposed(by: self.disposeBag)
     }
-
+    
+    private func makeRequestSearchLoadmore(_ input: Input) {
+        input
+            .loadMoreRelay
+            .subscribe { (key) in
+                self.page = self.page + 1
+                self.requestMoviesLoadmore(keyword: self.keyword)
+            }.disposed(by: self.disposeBag)
+    }
     
     private func requestMovies(keyword: String) {
         self.repository
             .request(body: MovieListBody(api_key: HTTPAuth.shared.apiKey, query: keyword, page: self.page))
             .subscribe { (result) in
-                if self.page != 1 {
-                    self.stateRelay.accept(.close)
-                }else{
-                    self.stateRelay.accept(.close)
-                    self.stateRelay.accept(.stopLoadMore)
-                }
                 self.moviesRelay.accept(result)
+                self.stateRelay.accept(.close)
+                
+            } onFailure: { (error) in
+                self.stateRelay.accept(.failure(error.readableError))
+            }.disposed(by: self.disposeBag)
+    }
+    
+    private func requestMoviesLoadmore(keyword: String) {
+        self.repository
+            .request(body: MovieListBody(api_key: HTTPAuth.shared.apiKey, query: keyword, page: self.page))
+            .subscribe { (result) in
+                let collect = self.moviesRelay.value + result
+                self.moviesRelay.accept(collect)
+                self.stateRelay.accept(.stopLoadMore)
+                
             } onFailure: { (error) in
                 self.stateRelay.accept(.failure(error.readableError))
             }.disposed(by: self.disposeBag)
@@ -81,18 +112,12 @@ class MovieListVM: BaseViewModel {
         self.repository
             .requestGenres(body: BaseBody(api_key: HTTPAuth.shared.apiKey))
             .subscribe { (result) in
-                if self.page != 1 {
-                    self.stateRelay.accept(.close)
-                }else{
-                    self.stateRelay.accept(.close)
-                    self.stateRelay.accept(.stopLoadMore)
-                }
-                self.genressRelay.accept(result)
+                self.genressRelay.accept(MovieListVM.getAllGenres)
+                self.stateRelay.accept(.close)
+                self.stateRelay.accept(.stopLoadMore)
             } onFailure: { (error) in
+                self.genressRelay.accept(MovieListVM.getAllGenres)
                 self.stateRelay.accept(.failure(error.readableError))
             }.disposed(by: self.disposeBag)
     }
-    
-    
-
 }

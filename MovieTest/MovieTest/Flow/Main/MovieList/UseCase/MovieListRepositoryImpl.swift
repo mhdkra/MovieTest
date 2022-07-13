@@ -58,6 +58,7 @@ class MovieListRepositoryImpl: MovieListRepository {
                 .subscribe { (result) in
                     switch result {
                     case .success(let model):
+                        self.saveAllGenres(allObjects: model)
                         observer(.success(model))
                     case .failure(let error):
                         observer(.failure(error))
@@ -74,7 +75,15 @@ class MovieListRepositoryImpl: MovieListRepository {
         if response.statusMessage != nil{
             return .failure(HTTPError.internalError)
         }
+        
         return .success(response.genres ?? [])
+    }
+    
+    func saveAllGenres(allObjects: [Genre]) {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(allObjects){
+            UserDefaults.standard.set(encoded, forKey: "genres")
+        }
     }
 }
 

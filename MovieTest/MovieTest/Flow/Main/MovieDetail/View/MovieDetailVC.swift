@@ -135,11 +135,7 @@ extension MovieDetailVC {
             self.hud.indicatorView = nil
             self.hud.textLabel.font = .systemFont(ofSize: 21)
             self.hud.textLabel.text = message
-            if isSuccess {
-                self.hud.indicatorView = JGProgressHUDSuccessIndicatorView()
-            } else {
-                self.hud.indicatorView = JGProgressHUDErrorIndicatorView()
-            }
+            self.hud.indicatorView = isSuccess ? JGProgressHUDSuccessIndicatorView() : JGProgressHUDErrorIndicatorView()
             self.hud.dismiss(afterDelay: 1.0)
         }
     }
